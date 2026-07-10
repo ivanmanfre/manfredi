@@ -11,7 +11,7 @@ You open Claude Code and it already knows your clients, your workflows, and what
 
 ## What you get
 
-**17 working skills**, available in any project once installed (namespaced as `/agency-starter:<skill>`):
+**14 working skills**, available in any project once installed (namespaced as `/agency-starter:<skill>`):
 
 - `getting-started` — guided tour and setup of the whole system
 - `new-project` — give a client, product, or area its own memory

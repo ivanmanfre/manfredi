@@ -1,7 +1,27 @@
 {
-  "agency-starter":        { "version": "1.0.0", "model_era": "claude-5", "last_bump": "2026-07-10" },
-  "drop-point-read":       { "version": "1.0.0", "model_era": "claude-5", "last_bump": "2026-07-10" },
-  "content-engine-starter":{ "version": "1.0.0", "model_era": "claude-5", "last_bump": "2026-07-10" },
-  "strip-ai-tells":        { "version": "1.0.0", "model_era": "claude-5", "last_bump": "2026-07-10" },
-  "client-onboarding":     { "version": "1.0.0", "model_era": "claude-5", "last_bump": "2026-07-10" }
+  "agency-starter": {
+    "version": "1.0.1",
+    "model_era": "claude-5",
+    "last_bump": "2026-07-10"
+  },
+  "drop-point-read": {
+    "version": "1.0.0",
+    "model_era": "claude-5",
+    "last_bump": "2026-07-10"
+  },
+  "content-engine-starter": {
+    "version": "1.0.0",
+    "model_era": "claude-5",
+    "last_bump": "2026-07-10"
+  },
+  "strip-ai-tells": {
+    "version": "1.0.0",
+    "model_era": "claude-5",
+    "last_bump": "2026-07-10"
+  },
+  "client-onboarding": {
+    "version": "1.0.0",
+    "model_era": "claude-5",
+    "last_bump": "2026-07-10"
+  }
 }

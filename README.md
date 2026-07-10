@@ -15,7 +15,7 @@ Swap `agency-starter` for any plugin below. Each installs independently.
 
 | Plugin | What it does |
 |---|---|
-| `agency-starter` | The memory tiers, project scaffold, guard hooks, and 17 working skills my agency's Claude Code runs on |
+| `agency-starter` | The memory tiers, project scaffold, guard hooks, and 14 working skills my agency's Claude Code runs on |
 | `drop-point-read` | Reads one sales call transcript and names the exact line where the deal slipped |
 | `content-engine-starter` | The skeleton of a Claude-run LinkedIn content engine: pipeline prompts, anti-slop rules, scoring rubric |
 | `strip-ai-tells` | A line editor that finds the 14 tells of AI-written copy and rewrites them out |

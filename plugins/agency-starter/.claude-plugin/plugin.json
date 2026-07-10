@@ -1,7 +1,7 @@
 {
   "name": "agency-starter",
-  "description": "The memory tiers, project scaffold, guard hooks, and 17 working skills I run my agency's Claude Code on. Drops in in about 15 minutes.",
-  "version": "1.0.0",
+  "description": "The memory tiers, project scaffold, guard hooks, and 14 working skills I run my agency's Claude Code on. Drops in in about 15 minutes.",
+  "version": "1.0.1",
   "author": {
     "name": "Ivan Manfredi",
     "url": "https://ivanmanfredi.com"
