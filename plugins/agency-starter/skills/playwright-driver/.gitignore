@@ -1,0 +1,8 @@
+# Local Playwright install (run `npm install playwright && npx playwright install chromium`)
+node_modules/
+
+# Persistent browser login profiles — contain live session cookies, never commit
+.playwright-profiles/
+
+# Per-run screenshots / error captures
+pw-out/

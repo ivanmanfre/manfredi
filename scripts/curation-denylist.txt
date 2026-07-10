@@ -1,0 +1,23 @@
+# Curation guard — patterns that must NEVER appear in shipped plugin content.
+# One extended-grep regex per line. Lines starting with # are comments.
+# This is the permanent backstop for the private layer: live project IDs,
+# credentials, internal hostnames, and client data.
+bjbvqvzbzczjbatgmccb
+XQSUuQH2e4YVwLCB
+n8n\.ivanmanfredi\.com
+ivan-video-engine-production
+claude-code-railway-production
+supabase\.co/storage/v1/object
+sb_secret_
+sbp_[a-f0-9]{40}
+gh[pousr]_[A-Za-z0-9]{20,}
+eyJhbGciOiJIUzI1NiI
+calendly\.com
+ivan-intelligents
+im-ivanmanfredi
+90132938061
+901312736181
+pk_[0-9]{6,}_[A-Z0-9]{20,}
+xoxb-
+sk-ant-
+AKIA[0-9A-Z]{16}

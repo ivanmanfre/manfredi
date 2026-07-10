@@ -1,0 +1,9 @@
+{
+  "name": "content-engine-starter",
+  "description": "The skeleton of a Claude-run LinkedIn content engine: 6 pipeline prompts, anti-slop checklist, pillars, and the buyer-fit scoring rubric.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ivan Manfredi",
+    "url": "https://ivanmanfredi.com"
+  }
+}

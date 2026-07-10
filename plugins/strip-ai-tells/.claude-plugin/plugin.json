@@ -1,0 +1,9 @@
+{
+  "name": "strip-ai-tells",
+  "description": "A line editor that finds the 14 tells that make AI-written copy obvious and rewrites them out, one pass per draft.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ivan Manfredi",
+    "url": "https://ivanmanfredi.com"
+  }
+}

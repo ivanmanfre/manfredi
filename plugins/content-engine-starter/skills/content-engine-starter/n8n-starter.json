@@ -1,0 +1,89 @@
+{
+  "name": "Content Engine — Starter Skeleton",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger",
+      "name": "Idea In (manual / webhook)",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Score the idea (see scoring-rubric.md). Keep >=30, else stop." } ] } },
+      "id": "score",
+      "name": "0 - Score (buyer-fit)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [460, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Run prompts/1-context.md against your corpus" } ] } },
+      "id": "context",
+      "name": "1 - Context",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [680, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Run prompts/2-format-router.md" } ] } },
+      "id": "format",
+      "name": "2 - Format router",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [900, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Run prompts/3-hook-batch.md, keep winner" } ] } },
+      "id": "hook",
+      "name": "3 - Hook batch",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1120, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Run prompts/4-voice-draft.md with voice-profile-template.md" } ] } },
+      "id": "draft",
+      "name": "4 - Voice draft",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1340, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Run prompts/5-qa-9dim.md; if any dim <6, loop back to draft" } ] } },
+      "id": "qa",
+      "name": "5 - QA (9 dim)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1560, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Run anti-slop-checklist.md regex FIRST, then prompts/6-deslop.md. Block on any hard fail." } ] } },
+      "id": "deslop",
+      "name": "6 - De-slop gate",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [1780, 380]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "note", "value": "Queue for human approval. The ONLY manual step. Then publish + build lead magnet." } ] } },
+      "id": "approve",
+      "name": "You Approve -> Ship",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [2000, 380]
+    }
+  ],
+  "connections": {
+    "Idea In (manual / webhook)": { "main": [[{ "node": "0 - Score (buyer-fit)", "type": "main", "index": 0 }]] },
+    "0 - Score (buyer-fit)": { "main": [[{ "node": "1 - Context", "type": "main", "index": 0 }]] },
+    "1 - Context": { "main": [[{ "node": "2 - Format router", "type": "main", "index": 0 }]] },
+    "2 - Format router": { "main": [[{ "node": "3 - Hook batch", "type": "main", "index": 0 }]] },
+    "3 - Hook batch": { "main": [[{ "node": "4 - Voice draft", "type": "main", "index": 0 }]] },
+    "4 - Voice draft": { "main": [[{ "node": "5 - QA (9 dim)", "type": "main", "index": 0 }]] },
+    "5 - QA (9 dim)": { "main": [[{ "node": "6 - De-slop gate", "type": "main", "index": 0 }]] },
+    "6 - De-slop gate": { "main": [[{ "node": "You Approve -> Ship", "type": "main", "index": 0 }]] }
+  },
+  "settings": {},
+  "meta": { "note": "Starter skeleton. Each Set node is a placeholder: swap in an AI/LLM node running the matching prompt file. Build memory first, then wire steps 1-6, then the de-slop gate." }
+}

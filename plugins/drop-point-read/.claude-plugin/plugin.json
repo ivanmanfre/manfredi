@@ -1,0 +1,9 @@
+{
+  "name": "drop-point-read",
+  "description": "Reads one sales call transcript and names the exact line where the deal slipped, scored against your own best closes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ivan Manfredi",
+    "url": "https://ivanmanfredi.com"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "manfredi",
+  "owner": {
+    "name": "Ivan Manfredi"
+  },
+  "description": "Working Claude Code kits from a real agency operator: the scaffold, the sales-call reader, the content engine starter, the AI-tell stripper, and the client onboarding stack. Versioned, and bumped when the model era shifts.",
+  "plugins": [
+    {
+      "name": "agency-starter",
+      "source": "./plugins/agency-starter",
+      "version": "1.0.0",
+      "description": "The memory tiers, project scaffold, guard hooks, and 17 working skills I run my agency's Claude Code on. Drops in in about 15 minutes."
+    },
+    {
+      "name": "drop-point-read",
+      "source": "./plugins/drop-point-read",
+      "version": "1.0.0",
+      "description": "Reads one sales call transcript and names the exact line where the deal slipped, scored against your own best closes."
+    },
+    {
+      "name": "content-engine-starter",
+      "source": "./plugins/content-engine-starter",
+      "version": "1.0.0",
+      "description": "The skeleton of a Claude-run LinkedIn content engine: 6 pipeline prompts, anti-slop checklist, pillars, and the buyer-fit scoring rubric."
+    },
+    {
+      "name": "strip-ai-tells",
+      "source": "./plugins/strip-ai-tells",
+      "version": "1.0.0",
+      "description": "A line editor that finds the 14 tells that make AI-written copy obvious and rewrites them out, one pass per draft."
+    },
+    {
+      "name": "client-onboarding",
+      "source": "./plugins/client-onboarding",
+      "version": "1.0.0",
+      "description": "A skill plus four stage agents that run a signed client from intake form to first deliverables, with the founder as the approve gate."
+    }
+  ]
+}

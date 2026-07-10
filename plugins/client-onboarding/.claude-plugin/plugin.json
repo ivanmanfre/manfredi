@@ -1,0 +1,9 @@
+{
+  "name": "client-onboarding",
+  "description": "A skill plus four stage agents that run a signed client from intake form to first deliverables, with the founder as the approve gate.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ivan Manfredi",
+    "url": "https://ivanmanfredi.com"
+  }
+}

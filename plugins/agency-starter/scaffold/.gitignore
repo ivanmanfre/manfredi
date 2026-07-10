@@ -1,0 +1,12 @@
+# Private credentials — never commit
+.env
+
+# Python cruft
+__pycache__/
+*.pyc
+
+# OS cruft
+.DS_Store
+
+# Skill drafts are personal WIP, not shipped
+.claude/skill-drafts/
