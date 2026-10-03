@@ -1,6 +1,6 @@
 # manfredi — working Claude Code kits from a real agency operator
 
-These are the systems I run my own automation agency on, packaged as installable Claude Code plugins. Every kit here came out of client work with $1-10M service firms. When the model era shifts, the kits get a version bump, and your install picks it up on the next refresh.
+These are the systems I run my own automation agency on, packaged as installable Claude Code plugins. When the model era shifts, the kits get a version bump, and your install picks it up on the next refresh.
 
 ## Install
 
@@ -20,6 +20,7 @@ Swap `agency-starter` for any plugin below. Each installs independently.
 | `content-engine-starter` | The skeleton of a Claude-run LinkedIn content engine: pipeline prompts, anti-slop rules, scoring rubric |
 | `strip-ai-tells` | A line editor that finds the 14 tells of AI-written copy and rewrites them out |
 | `client-onboarding` | A skill plus four stage agents that run client intake without the founder in the room |
+| `linkedin-preview` | A Claude Code mod that shows your LinkedIn draft the way the feed shows it, cut at "see more", with the markdown LinkedIn won't render flagged |
 
 ## What this is, and what it isn't
 

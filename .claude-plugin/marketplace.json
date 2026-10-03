@@ -34,6 +34,12 @@
       "source": "./plugins/client-onboarding",
       "version": "1.0.0",
       "description": "A skill plus four stage agents that run a signed client from intake form to first deliverables, with the founder as the approve gate."
+    },
+    {
+      "name": "linkedin-preview",
+      "source": "./plugins/linkedin-preview",
+      "version": "0.1.0",
+      "description": "A Claude Code mod that shows your LinkedIn post the way the feed shows it, cut at the \"see more\" fold, with the markdown LinkedIn will not render flagged. Needs Claude Code 2.1.287+."
     }
   ]
 }
