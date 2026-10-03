@@ -1,8 +1,8 @@
 {
   "name": "linkedin-preview",
   "displayName": "LinkedIn Post Preview",
-  "version": "0.1.0",
-  "description": "See a LinkedIn post the way the feed shows it, cut at the \"…see more\" fold, before you post it",
+  "version": "0.1.1",
+  "description": "See a LinkedIn post the way the feed shows it, cut at the \"\u2026see more\" fold, before you post it",
   "author": {
     "name": "Ivan Manfredi",
     "url": "https://ivanmanfredi.com"

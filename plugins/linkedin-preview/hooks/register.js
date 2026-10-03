@@ -168,7 +168,7 @@ export function register(on) {
             await $.store.set('view', viewName)
           },
         }),
-        Button({
+        ...(f.isFolded ? [Button({
           key: 'more',
           label: isExpanded ? 'See less' : 'See more',
           hotkey: 'f',
@@ -177,7 +177,7 @@ export function register(on) {
             isExpanded = !isExpanded
             redraw()
           },
-        }),
+        })] : []),
       ],
     })
 
@@ -231,6 +231,7 @@ export function register(on) {
       children: [
         Box({
           flexDirection: 'row',
+          flexWrap: 'wrap',
           columnGap: 3,
           children: [Text({ bold: true, children: [view.label + ' feed'] }), ...(drafts.length > 1 ? tabs : [])],
         }),
