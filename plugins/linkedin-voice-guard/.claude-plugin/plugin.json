@@ -1,0 +1,13 @@
+{
+  "name": "linkedin-voice-guard",
+  "displayName": "LinkedIn Voice Guard",
+  "version": "0.1.0",
+  "description": "Flags the phrases that make a LinkedIn draft sound AI-written, before you post it",
+  "author": {
+    "name": "Ivan Manfredi",
+    "url": "https://ivanmanfredi.com"
+  },
+  "homepage": "https://ivanmanfredi.com",
+  "keywords": ["linkedin", "content", "voice", "mod"],
+  "types": "./types/index.d.ts"
+}
