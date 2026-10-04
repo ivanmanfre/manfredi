@@ -17,17 +17,20 @@ const days = atom({ plugin: 'linkedin-pipeline', key: 'days' } as const, 30)
 
 // The file names LinkedIn and most CRMs give their exports; loose CSVs first,
 // so a messages.csv you unzipped wins over the one inside the archive
-const FINDABLE = [
-  /^messages\.csv$/i,
-  /^Connections\.csv$/i,
-  /(pipeline|crm|leads|deals|contacts).*\.csv$/i,
-  /^(Basic|Complete)_LinkedInDataExport.*\.zip$/i,
-]
+const MESSAGES_FILE = /^messages\.csv$/i
+const CONNECTIONS_FILE = /^Connections\.csv$/i
+const ARCHIVE_FILE = /^(Basic|Complete)_LinkedInDataExport.*\.zip$/i
+const CRM_FILES = /(pipeline|crm|leads|deals|contacts).*\.csv$/i
 
-async function findFiles($: EngineInterface, dir: string): Promise<string[]> {
+// Downloads gets LinkedIn's own files only: a prospect list saved there is
+// not a pipeline. A CRM CSV is found in the project folder or named outright.
+async function findFiles($: EngineInterface, dir: string, withCrm: boolean): Promise<string[]> {
   const entries = await $.fs.list(dir).catch(() => [])
   const found: string[] = []
-  for (const pattern of FINDABLE) {
+  const patterns = withCrm
+    ? [MESSAGES_FILE, CONNECTIONS_FILE, CRM_FILES, ARCHIVE_FILE]
+    : [MESSAGES_FILE, CONNECTIONS_FILE, ARCHIVE_FILE]
+  for (const pattern of patterns) {
     const newest = entries.filter((f) => f.kind === 'file' && pattern.test(f.name)).sort((a, b) => b.mtimeMs - a.mtimeMs)[0]
     if (newest) found.push(`${dir}/${newest.name}`)
   }
@@ -95,13 +98,13 @@ export const register: Register = (on) => {
     let paths = typed.map((p) => (home && (p === '~' || p.startsWith('~/')) ? home + p.slice(1) : p))
     if (!paths.length) {
       const saved = (await $.store.get('files')) as string[] | undefined
-      paths = Array.isArray(saved) && saved.length ? saved : await findFiles($, await $.session.cwd())
-      if (!paths.length && home) paths = await findFiles($, `${home}/Downloads`)
+      paths = Array.isArray(saved) && saved.length ? saved : await findFiles($, await $.session.cwd(), true)
+      if (!paths.length && home) paths = await findFiles($, `${home}/Downloads`, false)
     }
     if (!paths.length) {
       return {
         text: [
-          'No pipeline file found here or in Downloads.',
+          'No pipeline file found here, and no LinkedIn export in Downloads.',
           'Run /pipeline <file> with your LinkedIn data export (.zip, messages.csv, Connections.csv) or a CRM CSV with a stage or status column.',
         ].join('\n'),
       }

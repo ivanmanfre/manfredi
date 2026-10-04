@@ -90,3 +90,34 @@ test('/pipeline reads the files, opens the pane, and w changes the window', asyn
   expect(await ui.find({ type: 'Text', text: 'Last 90 days' })).toBeDefined()
   await ui.unmount()
 })
+
+test('a contact list whose only stage-like column is the address State is not a pipeline', () => {
+  const apollo = 'First Name,Last Name,Title,Company,City,State,Country\nAna,Silva,CEO,Acme,Austin,Texas,United States\n'
+  expect(() => load(apollo)).toThrow('No messages, connections or stage column found')
+})
+
+test('/pipeline finds a CRM CSV in the project folder but only LinkedIn exports in Downloads', async ($, on) => {
+  mock.store(on)
+  mock.clock(on, { now: NOW })
+  const entry = (name: string, mtimeMs: number) => ({ name, kind: 'file' as const, mtimeMs, size: 1, isLink: false })
+  const listing: Record<string, ReturnType<typeof entry>[]> = {
+    '/proj': [],
+    '/home/me/Downloads': [
+      entry('apollo-contacts-export.csv', 2),
+      entry('messages.csv', 1),
+    ],
+  }
+  const files: Record<string, string> = {
+    '/home/me/Downloads/messages.csv': b64(MESSAGES),
+    '/home/me/Downloads/apollo-contacts-export.csv': b64(CRM),
+  }
+  on('env.get', () => ({ value: '/home/me' }))
+  on('session.cwd', () => ({ value: '/proj' }))
+  on('fs.list', ($, e) => ({ value: listing[e.path] ?? [] }))
+  on('fs.read', ($, e) => (files[e.path] ? { value: { base64: files[e.path]! } } : { deny: 'ENOENT: no such file' }))
+  on('ui.open', () => ({ value: { isPlaced: true } }))
+
+  const answer = await $.command.run({ command: 'pipeline', args: '', ...AS_TYPED })
+  expect(answer.text).toContain('messages.csv: 5 leads')
+  expect(answer.text).not.toContain('apollo')
+})

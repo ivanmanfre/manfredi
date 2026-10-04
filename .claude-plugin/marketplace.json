@@ -50,7 +50,7 @@
     {
       "name": "linkedin-voice-guard",
       "source": "./plugins/linkedin-voice-guard",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "A Claude Code mod that flags the phrases that make a LinkedIn draft sound AI-written, highlighted in their line, and rewrites only those lines on one key. Needs Claude Code 2.1.287+."
     },
     {
@@ -62,7 +62,7 @@
     {
       "name": "linkedin-pipeline",
       "source": "./plugins/linkedin-pipeline",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "A Claude Code mod with a pane of your leads, replies and booked calls, read from your LinkedIn data export or a CRM CSV. Needs Claude Code 2.1.287+."
     }
   ]

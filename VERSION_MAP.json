@@ -35,7 +35,7 @@
     "last_bump": "2026-10-04"
   },
   "linkedin-voice-guard": {
-    "version": "0.1.0",
+    "version": "0.1.1",
     "model_era": "claude-5",
     "last_bump": "2026-10-04"
   },
@@ -45,7 +45,7 @@
     "last_bump": "2026-10-04"
   },
   "linkedin-pipeline": {
-    "version": "0.1.0",
+    "version": "0.1.1",
     "model_era": "claude-5",
     "last_bump": "2026-10-04"
   }
