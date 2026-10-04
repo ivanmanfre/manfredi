@@ -43,8 +43,18 @@ function threeFragments(text: string): Array<[number, number]> {
     // the three follow each other in one paragraph: only spaces or one line break between
     const isRun = run.every((x, j) => j === 0 || /^[ \t]*\n?[ \t]*$/.test(text.slice(run[j - 1]!.end, x.start)))
     if (isShort && isTight && isRun && !isQuestions && !isData) {
-      out.push([run[0]!.start, run[2]!.end])
-      i += 2
+      // a longer list of fragments is one flag: grow the run while it lasts
+      let last = i + 2
+      while (
+        last + 1 < sentences.length &&
+        sentences[last + 1]!.words <= 4 &&
+        !sentences[last + 1]!.hasComma &&
+        !/\d/.test(text.slice(sentences[last + 1]!.start, sentences[last + 1]!.end)) &&
+        /^[ \t]*\n?[ \t]*$/.test(text.slice(sentences[last]!.end, sentences[last + 1]!.start))
+      )
+        last++
+      out.push([run[0]!.start, sentences[last]!.end])
+      i = last
     }
   }
   return out

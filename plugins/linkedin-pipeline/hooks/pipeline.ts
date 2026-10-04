@@ -124,7 +124,8 @@ export function fromConnections(rows: string[][]): Loaded {
   return { kind: 'connections', people: [], connections: times }
 }
 
-const STAGE_COLS = /^(stage|status|deal stage|lead status|pipeline stage|state)$/i
+// No bare "state": in contact exports that is the address column
+const STAGE_COLS = /^(stage|status|deal stage|lead status|pipeline stage)$/i
 const NAME_COLS = /^(name|full name|contact|contact name|lead|lead name|person)$/i
 const DATE_COLS = /^(date|created|created at|created on|date added|added|first contact|updated|last activity|last contacted)$/i
 

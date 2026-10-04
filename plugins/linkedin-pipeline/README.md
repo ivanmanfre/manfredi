@@ -28,7 +28,7 @@ It works in the Claude Code terminal and in the Code tab of the Claude Desktop a
 
 ## Commands
 
-- `/pipeline` opens the pane. The first time it looks for the files in your project folder, then in Downloads. After that it reads the same files again.
+- `/pipeline` opens the pane. The first time it looks for the files in your project folder, then for your LinkedIn export in Downloads (a CRM CSV is read from the project folder or when you name it). After that it reads the same files again.
 - `/pipeline <file ...>` reads the files you name, for example `/pipeline ~/Downloads/Basic_LinkedInDataExport_10-04-2026.zip`.
 
 | Key | What it does |

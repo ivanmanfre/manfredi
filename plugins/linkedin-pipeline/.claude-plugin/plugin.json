@@ -1,13 +1,18 @@
 {
   "name": "linkedin-pipeline",
   "displayName": "LinkedIn Pipeline",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A pane with your leads, replies and booked calls, read from your LinkedIn data export or a CRM CSV",
   "author": {
     "name": "Ivan Manfredi",
     "url": "https://ivanmanfredi.com"
   },
   "homepage": "https://ivanmanfredi.com",
-  "keywords": ["linkedin", "pipeline", "leads", "mod"],
+  "keywords": [
+    "linkedin",
+    "pipeline",
+    "leads",
+    "mod"
+  ],
   "types": "./types/index.d.ts"
 }

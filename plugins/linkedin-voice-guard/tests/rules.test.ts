@@ -127,3 +127,11 @@ test('the rewrite prompt names each flagged line once and keeps the rest', () =>
   const s = snippet(found[0]!.flags[0]!, 30)
   expect(s.hit.toLowerCase()).toBe("in today's fast-paced")
 })
+
+test('a long list of fragments on one line is one flag, not two (2026-10-04, live install)', () => {
+  const line = 'Invoice. Welcome email. Kickoff booking link. Project folder. Slack channel. CRM update.'
+  const flags = check(line, rules).filter((f) => f.rule === 'three short fragments')
+  expect(flags).toHaveLength(1)
+  expect(flags[0]!.start).toBe(0)
+  expect(flags[0]!.end).toBe(line.length)
+})
