@@ -21,6 +21,10 @@ Swap `agency-starter` for any plugin below. Each installs independently.
 | `strip-ai-tells` | A line editor that finds the 14 tells of AI-written copy and rewrites them out |
 | `client-onboarding` | A skill plus four stage agents that run client intake without the founder in the room |
 | `linkedin-preview` | A Claude Code mod that shows your LinkedIn draft the way the feed shows it, cut at "see more", with the markdown LinkedIn won't render flagged |
+| `linkedin-hook-score` | A Claude Code mod that scores every LinkedIn hook against your own best posts |
+| `linkedin-voice-guard` | A Claude Code mod that flags the phrases that make a LinkedIn draft sound AI-written |
+| `linkedin-next-post` | A Claude Code mod that offers the next 3 content steps after a LinkedIn draft |
+| `linkedin-pipeline` | A Claude Code mod with a pane of your leads, replies and booked calls |
 
 ## What this is, and what it isn't
 

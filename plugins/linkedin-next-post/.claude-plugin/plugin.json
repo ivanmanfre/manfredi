@@ -1,0 +1,13 @@
+{
+  "name": "linkedin-next-post",
+  "displayName": "LinkedIn Next Post",
+  "version": "0.1.0",
+  "description": "After Claude writes a LinkedIn draft, offers the next 3 content steps as one-key buttons",
+  "author": {
+    "name": "Ivan Manfredi",
+    "url": "https://ivanmanfredi.com"
+  },
+  "homepage": "https://ivanmanfredi.com",
+  "keywords": ["linkedin", "content", "next steps", "mod"],
+  "types": "./types/index.d.ts"
+}

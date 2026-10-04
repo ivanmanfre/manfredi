@@ -71,6 +71,9 @@ export function register(on) {
   on('prompt.submit', async ($, e, next) => {
     isHinted = MENTIONS_LINKEDIN.test(e.text)
     if (!isHinted) return next(e)
+    // Another mod of the pack (hook score, voice guard, next post) may have asked
+    // already: Claude reads the request once
+    if ((e.context ?? []).some((c) => c.includes('```linkedin fenced code block'))) return next(e)
     const note =
       'linkedin-preview mod: when your answer contains a LinkedIn post draft, put each draft (the post text only) ' +
       'in its own ```linkedin fenced code block, so the user can preview it as the feed shows it.'

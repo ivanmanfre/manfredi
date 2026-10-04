@@ -84,9 +84,9 @@ test('checks flag markdown LinkedIn shows raw, and copy text removes it', () => 
 
 test('a prompt about LinkedIn gets the draft note for Claude, other prompts do not', async ($, on) => {
   on('prompt.submit', ($, e) => ({ text: e.text, context: e.context }))
-  const asked = await $.prompt.submit({ text: 'Write me 2 LinkedIn post hooks about pricing', wait: false })
+  const asked = await $.prompt.submit({ text: 'Write me 2 LinkedIn post hooks about pricing', wait: false, origin: { kind: 'composer' } })
   expect(String(asked.context)).toContain('```linkedin')
-  const other = await $.prompt.submit({ text: 'Fix the failing test', wait: false })
+  const other = await $.prompt.submit({ text: 'Fix the failing test', wait: false, origin: { kind: 'composer' } })
   expect(other.context ?? []).toHaveLength(0)
 })
 
@@ -149,9 +149,22 @@ test('the pane shows the fold, switches drafts and views, and copies clean text'
 
 test('/preview with text previews that text', async ($, on) => {
   on('ui.open', () => ({ value: { isPlaced: true } }))
-  const answer = await $.command.run({ command: 'preview', args: POST })
+  const answer = await $.command.run({ command: 'preview', args: POST, origin: { kind: 'composer' }, presentation: { isFullscreen: false, columns: 160 } })
   expect(answer.text ?? '').toBe('')
   const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
   expect(await ui.find({ type: 'Text', text: '…see more' })).toBeDefined()
   await ui.unmount()
+})
+
+test('when another mod already asked for ```linkedin blocks, the request is not added twice', async ($, on) => {
+  const other =
+    'linkedin-hook-score mod: when your answer contains a LinkedIn post draft, put each draft (the post text only) ' +
+    'in its own ```linkedin fenced code block, so the user can check it before posting.'
+  on('prompt.submit', ($, e) => ({ text: e.text, context: e.context }))
+  const asked = await $.prompt.submit({ text: 'Write me a LinkedIn post', wait: false, origin: { kind: 'composer' }, context: [other] })
+  expect(asked.context ?? []).toHaveLength(1)
+  expect(String(asked.context)).toContain('linkedin-hook-score mod')
+  const alone = await $.prompt.submit({ text: 'Write me a LinkedIn post', wait: false, origin: { kind: 'composer' } })
+  expect(alone.context ?? []).toHaveLength(1)
+  expect(String(alone.context)).toContain('linkedin-preview mod')
 })

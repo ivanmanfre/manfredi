@@ -58,7 +58,7 @@ When your prompt mentions LinkedIn, the mod adds one line for Claude asking it t
 - It reads Claude's answers in this session and draws a pane. It saves your name, headline and preferred view in Claude Code's plugin store on your machine.
 - It makes no network calls, runs no programs, and sends nothing anywhere. `claude plugin validate ./linkedin-preview` lists every event and API call the mod uses, so you can check this before you install.
 - The fold numbers are approximate. LinkedIn does not publish its rules and changes them without notice. The pane marks the fold with ≈.
-- Mods are new, and Anthropic says the mod API can change between releases. Tested with Claude Code 2.1.288.
+- Mods are new, and Anthropic says the mod API can change between releases. Tested with Claude Code 2.1.289.
 
 ## Troubleshooting
 

@@ -38,8 +38,32 @@
     {
       "name": "linkedin-preview",
       "source": "./plugins/linkedin-preview",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "A Claude Code mod that shows your LinkedIn post the way the feed shows it, cut at the \"see more\" fold, with the markdown LinkedIn will not render flagged. Needs Claude Code 2.1.287+."
+    },
+    {
+      "name": "linkedin-hook-score",
+      "source": "./plugins/linkedin-hook-score",
+      "version": "0.1.0",
+      "description": "A Claude Code mod that scores the hook of every LinkedIn draft from 1 to 10 against your own best posts, learned from your LinkedIn exports, with your own Claude. Needs Claude Code 2.1.287+."
+    },
+    {
+      "name": "linkedin-voice-guard",
+      "source": "./plugins/linkedin-voice-guard",
+      "version": "0.1.0",
+      "description": "A Claude Code mod that flags the phrases that make a LinkedIn draft sound AI-written, highlighted in their line, and rewrites only those lines on one key. Needs Claude Code 2.1.287+."
+    },
+    {
+      "name": "linkedin-next-post",
+      "source": "./plugins/linkedin-next-post",
+      "version": "0.1.0",
+      "description": "A Claude Code mod that offers the next 3 content steps after a LinkedIn draft as one-key buttons: carousel, objection replies, a hook that fits the fold. Needs Claude Code 2.1.287+."
+    },
+    {
+      "name": "linkedin-pipeline",
+      "source": "./plugins/linkedin-pipeline",
+      "version": "0.1.0",
+      "description": "A Claude Code mod with a pane of your leads, replies and booked calls, read from your LinkedIn data export or a CRM CSV. Needs Claude Code 2.1.287+."
     }
   ]
 }
